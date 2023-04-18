@@ -12,14 +12,14 @@ on:
         required: false
         default: running CT
 jobs:
-  continuous_training:
+  continuous-training:
     runs-on: ubuntu-latest
     steps:
       - name: checkout repo
         uses: action/checkout@v3
       - name: Train model
         env:
-          SERVICE_AACOUNT_KEY: ${{secrets.SERVICE_ACCOUNT_KEY }}
+          SERVICE_ACCOUNT_KEY: ${{secrets.SERVICE_ACCOUNT_KEY }}
         run: |
           pip3 install virtualenv
           virtual venv
@@ -38,15 +38,15 @@ jobs:
         git config --local user.name "github-actions[bot]"
         git add model/model.pkl.dvc
         git commit -m "Updating model serialization"
-    - uses: ad -m/github-push-action@master
+    - uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: ${{ github.ref}}
     - uses: iterative/setup-cml@v1
-    - name: push metrics
+    - name: Push metrics
       env:
         REPO_TOKEN: ${{ secrets.GITHUB_TOKEN}}
       run: |
         cat report.txt >> report.md
-        cml-publish prediction_behavior.png --md >> report.nd
+        cml-publish prediction_behavior.png --md >> report.Md
         cml-send-comment report.md
