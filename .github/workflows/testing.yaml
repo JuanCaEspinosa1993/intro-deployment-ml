@@ -1,5 +1,5 @@
 name: Testing API
-on: [push, pull_resquest]
+on: [push, pull_request]
 jobs:
   testing-api:
     runs-on: ubuntu-lastest
