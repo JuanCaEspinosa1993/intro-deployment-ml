@@ -19,7 +19,7 @@ jobs:
         uses: action/checkout@v3
       - name: Train model
         env:
-          SERVICE_ACCOUNT_KEY: ${{secrets.SERVICE_ACCOUNT_KEY }}
+          SERVICE_ACCOUNT_KEY: ${{ secrets.SERVICE_ACCOUNT_KEY }}
         run: |
           pip3 install virtualenv
           virtual venv
@@ -45,8 +45,8 @@ jobs:
     - uses: iterative/setup-cml@v1
     - name: Push metrics
       env:
-        REPO_TOKEN: ${{ secrets.GITHUB_TOKEN}}
+        REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         cat report.txt >> report.md
-        cml-publish prediction_behavior.png --md >> report.Md
+        cml-publish prediction_behavior.png --md >> report.md
         cml-send-comment report.md
