@@ -12,7 +12,7 @@ on:
         required: false
         default: running CT
 jobs:
-  continuous_training:
+  continuous-training:
     runs-on: ubuntu-latest
     steps:
       - name: checkout repo
