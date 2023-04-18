@@ -3,7 +3,7 @@ from pydantic import BaseModel
 class PredictionRequest(BaseModel):
     opening_gross : float
     screens :float
-    production_budger: float
+    production_budget: float
     title_year : int
     aspect_ratio : float
     duration : int
@@ -12,4 +12,4 @@ class PredictionRequest(BaseModel):
     imdb_score: float
 
 class PredictionResponse(BaseModel):
-    worlwide_gross: float
+    worldwide_gross: float
