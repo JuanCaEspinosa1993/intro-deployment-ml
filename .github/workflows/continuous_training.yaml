@@ -7,7 +7,7 @@ on:
       reason:
         description: Why to run this?
         required: false
-        default: running CT
+        default: running CT 
 permissions:
   contents: write
   pull-requests: write 
