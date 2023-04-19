@@ -20,7 +20,7 @@ jobs:
       - name: Set environment and bring the model
         run: |
           pip3 install virtualvenv
-          virtualenv env
+          virtualenv venv
           source venv/bin/activate
           pip install dvc[gs]
           export GOOGLE_APPLICATION_CREDENTIALS=$(python utilities/setter.py)
