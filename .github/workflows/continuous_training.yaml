@@ -12,11 +12,10 @@ on:
         required: false
         default: running CT
 permissions:
-  id-token: write
   contents: write
-  pull-requests: write   
+  pull-requests: write 
   issues: read
-  packages:none
+  packages: none
 jobs:
   continuous-training:
     runs-on: ubuntu-latest
