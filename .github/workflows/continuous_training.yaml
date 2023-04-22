@@ -37,7 +37,7 @@ jobs:
       - name: Commit .dvc file changes
         run: |
           git config --local user.mail "jc.ejimenez9276@gmail.com"
-          git config --local user.name "github-actions[bot]"
+          git config --local user.name "juancaespinosa1993"
           git add model/model.pkl.dvc
           git commit -m "Updating model serialization"
       - uses: ad-m/github-push-action@master
@@ -50,5 +50,5 @@ jobs:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cat report.txt >> report.md
-          cml-publish prediction_behavior.png --md >> report.md
-          cml-send-comment report.md
+          ![inline](./prediction_behavior.png) >> report.md
+          cml comment create --body "$(cat report.md)" --path report.md
